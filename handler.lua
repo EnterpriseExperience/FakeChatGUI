@@ -20,8 +20,8 @@ getgenv().blacklisted_users = users
 
 for _, name in ipairs(users) do
    if name == LocalPlayer.Name then
-      LocalPlayer:Kick("Temporarily blacklisted from | Flames Hub - Services | Reason: User-Content Abuse (loop-flinging/harassing other Flames Hub users).")
-      task.wait(0.5)
+      LocalPlayer:Kick("Temporarily blacklisted from | Flames Hub - Services | Reason: User-Content Abuse (loop-flinging/harassing other Flames Hub users), you will be crashed.")
+      task.wait(6)
       while true do end
    end
 end
