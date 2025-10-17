@@ -1,6 +1,4 @@
-getgenv().Game = game
-print(game.." was found.")
---[[local HttpService = cloneref and cloneref(game:GetService("HttpService")) or game:GetService("HttpService")
+local HttpService = cloneref and cloneref(game:GetService("HttpService")) or game:GetService("HttpService")
 local Players = cloneref and cloneref(game:GetService("Players")) or game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local url = "https://raw.githubusercontent.com/EnterpriseExperience/FakeChatGUI/refs/heads/main/users.json"
@@ -40,4 +38,4 @@ Players.PlayerAdded:Connect(function(Player)
          getgenv().notify("Warning", "A blacklisted user joined: "..name, 5)
       end
    end
-end)--]]
+end)
