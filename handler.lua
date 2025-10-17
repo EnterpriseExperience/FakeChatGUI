@@ -20,7 +20,7 @@ getgenv().blacklisted_users = users
 
 for _, name in ipairs(users) do
    if name == LocalPlayer.Name then
-      LocalPlayer:Kick("Blacklisted from: Flames Hub | Services.")
+      LocalPlayer:Kick("Temporary blacklisted from | Flames Hub - Services | Reason: User-Content Abuse (loop-flinging other Flames Hub users).")
       task.wait(0.5)
       while true do end
    end
@@ -35,7 +35,7 @@ end
 Players.PlayerAdded:Connect(function(Player)
    for _, name in ipairs(users) do
       if Player.Name == name then
-         getgenv().notify("Warning", "A blacklisted user joined: "..name, 5)
+         getgenv().notify("Warning", "A blacklisted user has joined: "..name, 5)
       end
    end
 end)
