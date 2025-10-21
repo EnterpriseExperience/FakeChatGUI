@@ -2,40 +2,48 @@ local HttpService = cloneref and cloneref(game:GetService("HttpService")) or gam
 local Players = cloneref and cloneref(game:GetService("Players")) or game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local url = "https://raw.githubusercontent.com/EnterpriseExperience/FakeChatGUI/refs/heads/main/users.json"
+
 local success, result = pcall(function()
-   local data = game:HttpGet(url)
-   return HttpService:JSONDecode(data)
+    local data = game:HttpGet(url)
+    return HttpService:JSONDecode(data)
 end)
 
 if not success then
-   return warn("Failed to load user list:", result)
+    return warn("Failed to load user list:", result)
 end
 
 local users = result
 if type(users) ~= "table" then
-   return warn("Invalid user list (not a table)")
+    return warn("Invalid user list (not a table)")
 end
 
 getgenv().blacklisted_users = users
 
-for _, name in ipairs(users) do
-   if name == LocalPlayer.Name then
-      LocalPlayer:Kick("Temporarily blacklisted from | Flames Hub - Services | Reason: Multiple reports of client abuse (loop-flinging/harassing other Flames Hub users), you will be crashed.")
-      task.wait(6.5)
-      while true do end
-   end
+local function is_expired(entry)
+    if not entry.expires or entry.expires == "" then return false end
+    local y, m, d = entry.expires:match("(%d+)%-(%d+)%-(%d+)")
+    if not y or not m or not d then return false end
+    local expires = os.time({ year = y, month = m, day = d, hour = 0 })
+    return os.time() > expires
 end
 
-for _, name in ipairs(users) do
-   if Players:FindFirstChild(name) then
-      getgenv().notify("Warning", "A blacklisted user is in this server: "..name, 5)
-   end
+local entry = users[LocalPlayer.Name]
+if entry and not is_expired(entry) then
+    LocalPlayer:Kick(("Temporarily blacklisted from | Flames Hub - Services | Reason: %s (expires %s)")
+        :format(entry.reason or "No reason provided", entry.expires or "unknown"))
+    task.wait(6.5)
+    while true do end
+end
+
+for name, entry in pairs(users) do
+    if not is_expired(entry) and Players:FindFirstChild(name) then
+        getgenv().notify("Warning", ("Blacklisted user in server: %s (%s)"):format(name, entry.reason or "No reason"), 5)
+    end
 end
 
 Players.PlayerAdded:Connect(function(Player)
-   for _, name in ipairs(users) do
-      if Player.Name == name then
-         getgenv().notify("Warning", "A blacklisted user has joined: "..name, 5)
-      end
-   end
+    local entry = users[Player.Name]
+    if entry and not is_expired(entry) then
+        getgenv().notify("Warning", ("Blacklisted user joined: %s (%s)"):format(Player.Name, entry.reason or "No reason"), 5)
+    end
 end)
