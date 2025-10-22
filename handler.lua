@@ -1,7 +1,7 @@
 local HttpService = cloneref and cloneref(game:GetService("HttpService")) or game:GetService("HttpService")
 local Players = cloneref and cloneref(game:GetService("Players")) or game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
-local url = "https://raw.githubusercontent.com/EnterpriseExperience/FakeChatGUI/refs/heads/main/users.json"
+local url = "https://raw.githubusercontent.com/EnterpriseExperience/FakeChatGUI/main/users.json"
 
 local success, result = pcall(function()
     local data = game:HttpGet(url)
@@ -36,14 +36,14 @@ if entry and not is_expired(entry) then
 end
 
 for name, entry in pairs(users) do
-    if not is_expired(entry) and Players:FindFirstChild(name) then
-        getgenv().notify("Warning", ("Blacklisted user in server: %s (%s)"):format(name, entry.reason or "No reason"), 5)
-    end
+   if not is_expired(entry) and Players:FindFirstChild(name) then
+      getgenv().notify("Warning", ("Blacklisted user in server: %s (%s)"):format(name, entry.reason or "No reason"), 5)
+   end
 end
 
 Players.PlayerAdded:Connect(function(Player)
-    local entry = users[Player.Name]
-    if entry and not is_expired(entry) then
-        getgenv().notify("Warning", ("Blacklisted user joined: %s (%s)"):format(Player.Name, entry.reason or "No reason"), 5)
-    end
+   local entry = users[Player.Name]
+   if entry and not is_expired(entry) then
+      getgenv().notify("Warning", ("Blacklisted user joined: %s (%s)"):format(Player.Name, entry.reason or "No reason"), 5)
+   end
 end)
