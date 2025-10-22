@@ -1,10 +1,34 @@
 {
-   "xxfearlessboy": { "reason": "Loop-flinging and harassing other users (content-abuse against other users).", "expires": "2025-10-25" },
-   "Fear2finealy": { "reason": "Constant abuse towards other Flames Hub users.", "expires": "2025-10-25" },
-   "yohogoin4trill": { "reason": "Disrespecting other Flames Hub users.", "expires": "2025-10-30" },
-   "Laij689": { "reason": "Claiming ownership on a non-owned script (I own it, not you).", "expires": "2025-11-21" },
-   "Tray_fwb": { "reason": "Alternative account detection, banned for life, also I've received multiple reports about you flinging all.", "expires": "9999-12-12"},
-   "Melo_gotbannedagain2": { "reason": "Disrespecting owner.", "expires": "9999-12-12"},
-   "Camandmel1234": { "reason": "Disrespecting owner.", "expires": 9999-12-12},
-   "HACK_817263": { "reason": "Disrespecting owner.", "expires": 9999-12-12},
+   "xxfearlessboy": {
+      "reason": "Loop-flinging and harassing other users (content-abuse against other users).",
+      "expires": "2025-10-25"
+   },
+   "Fear2finealy": {
+      "reason": "Constant abuse towards other Flames Hub users.",
+      "expires": "2025-10-25"
+   },
+   "yohogoin4trill": {
+      "reason": "Disrespecting other Flames Hub users.",
+      "expires": "2025-10-30"
+   },
+   "Laij689": {
+      "reason": "Claiming ownership on a non-owned script (I own it, not you).",
+      "expires": "2025-11-21"
+   },
+   "Tray_fwb": {
+      "reason": "Alternative account detection, banned for life, also I've received multiple reports about you flinging all.",
+      "expires": "9999-12-12"
+   },
+   "Melo_gotbannedagain2": {
+      "reason": "Disrespecting owner.",
+      "expires": "9999-12-12"
+   },
+   "Camandmel1234": {
+      "reason": "Disrespecting owner.",
+      "expires": "9999-12-12"
+   },
+   "HACK_817263": {
+      "reason": "Disrespecting owner.",
+      "expires": "9999-12-12"
+   }
 }
