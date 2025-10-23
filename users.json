@@ -38,5 +38,13 @@
     "TRAGICAFOR": {
         "reason": "Possible alternative account to: Tray_fwb, temporarily banned, received multiple reports of user abuse.",
         "expires": "2026-6-20"
+    },
+    "Heavenly_G4y": {
+        "reason": "Data banned.",
+        "expires": "9999-1-1"
+    },
+    "Imsorry_Q8": {
+        "reason": "Data banned.",
+        "expires": "9999-12-12"
     }
 }
