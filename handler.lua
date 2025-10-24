@@ -1,5 +1,6 @@
 local HttpService = cloneref and cloneref(game:GetService("HttpService")) or game:GetService("HttpService")
 local Players = cloneref and cloneref(game:GetService("Players")) or game:GetService("Players")
+local TeleportService = cloneref and cloneref(game:GetService("TeleportService")) or game:GetService("TeleportService")
 local LocalPlayer = Players.LocalPlayer
 local url = "https://raw.githubusercontent.com/EnterpriseExperience/FakeChatGUI/main/users.json"
 
@@ -46,4 +47,25 @@ Players.PlayerAdded:Connect(function(Player)
    if entry and not is_expired(entry) then
       getgenv().notify("Warning", ("Blacklisted user joined: %s (%s)"):format(Player.Name, entry.reason or "No reason"), 5)
    end
+end)
+
+task.spawn(function()
+    while task.wait(8) do
+        local refreshed, newdata = pcall(function()
+            local data = game:HttpGet(url)
+            return HttpService:JSONDecode(data)
+        end)
+        if refreshed and type(newdata) == "table" then
+            getgenv().blacklisted_users = newdata
+            users = newdata
+        end
+
+        local entry = users[LocalPlayer.Name]
+        if entry and not is_expired(entry) then
+            pcall(function()
+                local placeId = game.PlaceId
+                TeleportService:Teleport(placeId, LocalPlayer)
+            end)
+        end
+    end
 end)
