@@ -50,7 +50,7 @@ Players.PlayerAdded:Connect(function(Player)
 end)
 
 task.spawn(function()
-    while task.wait(1) do
+    while task.wait(0.5) do
         local refreshed, newdata = pcall(function()
             local data = game:HttpGet(url)
             return HttpService:JSONDecode(data)
