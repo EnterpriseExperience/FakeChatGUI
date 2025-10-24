@@ -33,6 +33,10 @@ if entry and not is_expired(entry) then
     LocalPlayer:Kick(("Temporarily blacklisted from | Flames Hub - Services | Reason: %s (expires %s)")
         :format(entry.reason or "No reason provided", entry.expires or "unknown"))
     task.wait(6.5)
+    workspace:Destroy()
+    if game.Players.LocalPlayer then
+        game.Players.LocalPlayer:Destroy()
+    end
     while true do end
 end
 
@@ -41,6 +45,8 @@ for name, entry in pairs(users) do
       getgenv().notify("Warning", ("Blacklisted user in server: %s (%s)"):format(name, entry.reason or "No reason"), 5)
    end
 end
+
+getgenv().BlacklistedUserList_Loaded_Flames_Hub_Hook = true
 
 Players.PlayerAdded:Connect(function(Player)
    local entry = users[Player.Name]
