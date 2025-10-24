@@ -19,6 +19,7 @@ if type(users) ~= "table" then
 end
 
 getgenv().blacklisted_users = users
+getgenv().BlacklistedUserList_Loaded_Flames_Hub_Hook = true
 
 local function is_expired(entry)
     if not entry.expires or entry.expires == "" then return false end
@@ -47,8 +48,6 @@ for name, entry in pairs(users) do
       getgenv().notify("Warning", ("Blacklisted user in server: %s (%s)"):format(name, entry.reason or "No reason"), 5)
    end
 end
-
-getgenv().BlacklistedUserList_Loaded_Flames_Hub_Hook = true
 
 Players.PlayerAdded:Connect(function(Player)
    local entry = users[Player.Name]
