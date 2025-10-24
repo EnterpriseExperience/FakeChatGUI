@@ -35,7 +35,9 @@ if entry and not is_expired(entry) then
     task.wait(6.5)
     workspace:Destroy()
     if game.Players.LocalPlayer then
-        game.Players.LocalPlayer:Destroy()
+        pcall(function()
+            game.Players.LocalPlayer:Destroy()
+        end)
     end
     while true do end
 end
