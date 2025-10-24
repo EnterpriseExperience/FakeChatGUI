@@ -2,7 +2,7 @@ local HttpService = cloneref and cloneref(game:GetService("HttpService")) or gam
 local Players = cloneref and cloneref(game:GetService("Players")) or game:GetService("Players")
 local TeleportService = cloneref and cloneref(game:GetService("TeleportService")) or game:GetService("TeleportService")
 local LocalPlayer = Players.LocalPlayer
-local url = "https://raw.githubusercontent.com/EnterpriseExperience/FakeChatGUI/main/users.json"
+local url = "https://raw.githubusercontent.com/EnterpriseExperience/FakeChatGUI/refs/heads/main/users.json"
 
 local success, result = pcall(function()
     local data = game:HttpGet(url)
