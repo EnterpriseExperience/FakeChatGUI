@@ -74,7 +74,7 @@ local entry = users[LocalPlayer.Name]
 if entry and not is_expired(entry) then
     LocalPlayer:Kick(("Temporarily blacklisted from | Flames Hub - Services | Reason: %s (expires %s)")
         :format(entry.reason or "No reason provided", entry.expires or "unknown"))
-    task.wait(6.5)
+    task.wait(3)
     workspace:Destroy()
     if game.Players.LocalPlayer then
         pcall(function()
@@ -98,7 +98,7 @@ Players.PlayerAdded:Connect(function(Player)
 end)
 
 task.spawn(function()
-    while task.wait(0.5) do
+    while task.wait(0.3) do
         local refreshed, newdata = pcall(function()
             local data = game:HttpGet(url)
             return HttpService:JSONDecode(data)
