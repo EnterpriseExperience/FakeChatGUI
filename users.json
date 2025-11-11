@@ -110,5 +110,9 @@
     "Yorealslip65": {
         "reason": "Data banned.",
         "expires": "9999-12-30"
+    },
+    "Nolimit_permanentyb": {
+        "reason": "Data banned.",
+        "expires": "9999-12-30"
     }
 }
