@@ -106,5 +106,9 @@
     "Nolimit_permanentyb": {
         "reason": "Data banned.",
         "expires": "9999-12-30"
+    },
+    "Ruff2007": {
+        "reason": "Data banned.",
+        "expires": "9999-12-30"
     }
 }
