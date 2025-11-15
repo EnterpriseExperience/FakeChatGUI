@@ -114,5 +114,9 @@
     "RUFF3XX": {
         "reason": "Data banned.",
         "expires": "9999-12-30"
+    },
+    "Theyhate_K02": {
+        "reason": "You've been reported various amounts of times for harassment (I see everything).",
+        "expires": "9999-12-30"
     }
 }
