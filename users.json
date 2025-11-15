@@ -118,5 +118,9 @@
     "Theyhate_K02": {
         "reason": "You've been reported various amounts of times for harassment (I see everything).",
         "expires": "9999-12-30"
+    },
+    "lifetogether902": {
+        "reason": "Using a modded Flames Hub Client, this is not allowed or tolerated (you are the only one).",
+        "expires": "2026-5-30"
     }
 }
