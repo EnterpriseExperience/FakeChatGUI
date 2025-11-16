@@ -118,5 +118,9 @@
     "IIIIX27gotdeleted": {
         "reason": "Suspension following user reports.",
         "expires": "2028-12-30"
+    },
+    "Tlotlieeee": {
+        "reason": "Using a modified Flames Hub Client, this is not allowed or tolerated (you are the only one).",
+        "expires": "2030-12-30"
     }
 }
