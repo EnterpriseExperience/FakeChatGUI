@@ -118,5 +118,9 @@
     "3xotic_r4ckkkss": {
         "reason": "Flinging users/harassment, temporarily blacklisted/suspended.",
         "expires": "2026-3-30"
+    },
+    "IIIIX27gotdeleted": {
+        "reason": "Suspension following user reports.",
+        "expires": "2028-12-30"
     }
 }
