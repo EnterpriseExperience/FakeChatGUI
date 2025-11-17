@@ -122,5 +122,9 @@
     "Laynie_boo29": {
         "reason": "3 day suspension, you we're caught killing users of Flames Hub.",
         "expires": "2025-11-20"
+    },
+    "tailajeff": {
+        "reason": "Using a modified Flames Hub Client, this is not allowed or tolerated (you are the only one).",
+        "expires": "2050-12-30"
     }
 }
