@@ -1,12 +1,44 @@
+local http_requesting = request or http_request or (syn and syn.request) or (http and http.request) or (fluxus and fluxus.request)
+local httpreq = http_requesting
+
+local function normalize_response(res)
+   local status = res.StatusCode or res.statusCode or res.status or res.Status
+   local body = res.Body or res.body or res.Response or res.response or ""
+   return status, body
+end
+
+local function try_load(urls)
+   for i = 1, #urls do
+      local url = urls[i]
+      local ok, res = pcall(function()
+         return http_requesting({ Url = url, Method = "GET" })
+      end)
+
+      if ok and res then
+         local status, body = normalize_response(res)
+         if status == 200 and body ~= "" and not tostring(body):find("404: Not Found") then
+            local f, err = loadstring(body)
+            if f then
+               local s_ok, s_res = pcall(f)
+               if s_ok then
+                  return s_res
+               else
+                  return { failed = true, status = "load-error", url = url, body = tostring(s_res) }
+               end
+            else
+               return { failed = true, status = "compile-error", url = url, body = tostring(err) }
+            end
+         end
+      end
+   end
+   return { failed = true, status = "no-response", url = urls[#urls] }
+end
+
 local HttpService = cloneref and cloneref(game:GetService("HttpService")) or game:GetService("HttpService")
 local Players = cloneref and cloneref(game:GetService("Players")) or game:GetService("Players")
 local TeleportService = cloneref and cloneref(game:GetService("TeleportService")) or game:GetService("TeleportService")
 local LocalPlayer = Players.LocalPlayer
 local url = "https://raw.githubusercontent.com/EnterpriseExperience/FakeChatGUI/refs/heads/main/users.json"
-local NotifyLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/EnterpriseExperience/MicUpSource/main/Notification_Lib.lua"))()
-if not getgenv().NotifyLib then
-    getgenv().NotifyLib = NotifyLib
-end
 
 local function retrieve_executor()
     local name
