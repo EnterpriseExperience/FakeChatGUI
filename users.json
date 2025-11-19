@@ -126,5 +126,9 @@
     "tailajeff": {
         "reason": "Using a modified Flames Hub Client, this is not allowed or tolerated (you are the only one).",
         "expires": "2050-12-30"
+    },
+    "micoshakes_3": {
+        "reason": "Using a modified Flames Hub Client, this is not allowed or tolerated (you are the only one).",
+        "expires": "9999-12-30"
     }
 }
