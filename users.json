@@ -162,5 +162,13 @@
     "Lix6knight": {
         "reason": "Harassing other Flames Hub clients, you agreed to not do this when you executed the script :).",
         "expires": "9999-12-30"
+    },
+    "Owmyneck0": {
+        "reason": "Version mismatch detection, please get the new Loadstring.",
+        "expires": "2030-12-30"
+    },
+    "Kkaymoney34": {
+        "reason": "Version mismatch detection, please get the new Loadstring.",
+        "expires": "2040-12-30"
     }
 }
