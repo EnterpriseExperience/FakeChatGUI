@@ -170,5 +170,9 @@
     "Kkaymoney34": {
         "reason": "Version mismatch detection, please get the new Loadstring.",
         "expires": "2040-12-30"
+    },
+    "VCR_BLACK": {
+        "reason": "Version mismatch detection, please get the new Loadstring.",
+        "expires": "2040-12-30"
     }
 }
