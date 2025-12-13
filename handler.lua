@@ -2,7 +2,7 @@ local http_requesting = request or http_request or (syn and syn.request) or (htt
 local httpreq = http_requesting
 getgenv().ConstantUpdate_Checker_Live = true
 local Raw_Version = "V7.2.9"
-local Script_Version = tostring(Raw_Version).."-LifeAdmin"
+local Script_Version = getgenv().Script_Version_GlobalGenv or tostring(Raw_Version).."-LifeAdmin"
 
 function Notify(message, duration)
    local CoreGui = cloneref and cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui")
