@@ -174,5 +174,17 @@
     "VCR_BLACK": {
         "reason": "Version mismatch detection, please get the new Loadstring.",
         "expires": "2040-12-30"
+    },
+    "creationmobbbb": {
+        "reason": "Back to harassing users, infinite suspension.",
+        "expires": "9999-12-30"
+    },
+    "macienoveah": {
+        "reason": "Back to harassing users, infinite suspension.",
+        "expires": "9999-12-30"
+    },
+    "creationmobb": {
+        "reason": "Back to harassing users, infinite suspension.",
+        "expires": "9999-12-30"
     }
 }
