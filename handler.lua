@@ -5,102 +5,102 @@ local Raw_Version = "V7.3.3"
 local Script_Version = getgenv().Script_Version or getgenv().Script_Version_GlobalGenv
 
 function Notify(message, duration)
-   local CoreGui = cloneref and cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui")
-   local TweenService = cloneref and cloneref(game:GetService("TweenService")) or game:GetService("TweenService")
+    local CoreGui = cloneref and cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui")
+    local TweenService = cloneref and cloneref(game:GetService("TweenService")) or game:GetService("TweenService")
 
-   local NotificationGui = Instance.new("ScreenGui")
-   NotificationGui.Name = "CustomErrorGui"
-   NotificationGui.ResetOnSpawn = false
-   NotificationGui.Parent = CoreGui
-   duration = duration or 5
+    local NotificationGui = Instance.new("ScreenGui")
+    NotificationGui.Name = "CustomErrorGui"
+    NotificationGui.ResetOnSpawn = false
+    NotificationGui.Parent = CoreGui
+    duration = duration or 5
 
-   local Frame = Instance.new("Frame")
-   Frame.Name = "ErrorMessage"
-   Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-   Frame.BackgroundTransparency = 0.3
-   Frame.BorderSizePixel = 0
-   Frame.Size = UDim2.new(0, 500, 0, 120)
-   Frame.Position = UDim2.new(0, 20, 0, 100)
-   Frame.Parent = NotificationGui
+    local Frame = Instance.new("Frame")
+    Frame.Name = "ErrorMessage"
+    Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    Frame.BackgroundTransparency = 0.3
+    Frame.BorderSizePixel = 0
+    Frame.Size = UDim2.new(0, 500, 0, 120)
+    Frame.Position = UDim2.new(0, 20, 0, 100)
+    Frame.Parent = NotificationGui
 
-   local UICorner = Instance.new("UICorner")
-   UICorner.CornerRadius = UDim.new(0, 10)
-   UICorner.Parent = Frame
+    local UICorner = Instance.new("UICorner")
+    UICorner.CornerRadius = UDim.new(0, 10)
+    UICorner.Parent = Frame
 
-   local Icon = Instance.new("ImageLabel")
-   Icon.Name = "ErrorIcon"
-   Icon.AnchorPoint = Vector2.new(0, 0.5)
-   Icon.BackgroundTransparency = 1
-   Icon.Position = UDim2.new(0, 15, 0.5, -25)
-   Icon.Size = UDim2.new(0, 50, 0, 50)
-   Icon.Image = "rbxasset://textures/ui/Emotes/ErrorIcon.png"
-   Icon.ImageColor3 = Color3.fromRGB(255, 255, 255)
-   Icon.Parent = Frame
+    local Icon = Instance.new("ImageLabel")
+    Icon.Name = "ErrorIcon"
+    Icon.AnchorPoint = Vector2.new(0, 0.5)
+    Icon.BackgroundTransparency = 1
+    Icon.Position = UDim2.new(0, 15, 0.5, -25)
+    Icon.Size = UDim2.new(0, 50, 0, 50)
+    Icon.Image = "rbxasset://textures/ui/Emotes/ErrorIcon.png"
+    Icon.ImageColor3 = Color3.fromRGB(255, 255, 255)
+    Icon.Parent = Frame
 
-   local Label = Instance.new("TextLabel")
-   Label.Name = "ErrorText"
-   Label.BackgroundTransparency = 1
-   Label.Position = UDim2.new(0, 80, 0, 10)
-   Label.Size = UDim2.new(1, -90, 1, -20)
-   Label.FontFace = Font.new("rbxasset://fonts/families/BuilderSans.json")
-   Label.Text = message
-   Label.TextColor3 = Color3.fromRGB(255, 255, 255)
-   Label.TextSize = 20
-   Label.TextWrapped = true
-   Label.TextXAlignment = Enum.TextXAlignment.Left
-   Label.TextYAlignment = Enum.TextYAlignment.Top
-   Label.Parent = Frame
+    local Label = Instance.new("TextLabel")
+    Label.Name = "ErrorText"
+    Label.BackgroundTransparency = 1
+    Label.Position = UDim2.new(0, 80, 0, 10)
+    Label.Size = UDim2.new(1, -90, 1, -20)
+    Label.FontFace = Font.new("rbxasset://fonts/families/BuilderSans.json")
+    Label.Text = message
+    Label.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Label.TextSize = 20
+    Label.TextWrapped = true
+    Label.TextXAlignment = Enum.TextXAlignment.Left
+    Label.TextYAlignment = Enum.TextYAlignment.Top
+    Label.Parent = Frame
 
-   Frame.BackgroundTransparency = 1
-   Icon.ImageTransparency = 1
-   Label.TextTransparency = 1
-   TweenService:Create(Frame, TweenInfo.new(0.3), {BackgroundTransparency = 0.3}):Play()
-   TweenService:Create(Icon, TweenInfo.new(0.3), {ImageTransparency = 0}):Play()
-   TweenService:Create(Label, TweenInfo.new(0.3), {TextTransparency = 0}):Play()
+    Frame.BackgroundTransparency = 1
+    Icon.ImageTransparency = 1
+    Label.TextTransparency = 1
+    TweenService:Create(Frame, TweenInfo.new(0.3), {BackgroundTransparency = 0.3}):Play()
+    TweenService:Create(Icon, TweenInfo.new(0.3), {ImageTransparency = 0}):Play()
+    TweenService:Create(Label, TweenInfo.new(0.3), {TextTransparency = 0}):Play()
 
-   task.delay(duration, function()
-      if Frame and Frame.Parent then
-         TweenService:Create(Frame, TweenInfo.new(0.3), {BackgroundTransparency = 1}):Play()
-         TweenService:Create(Icon, TweenInfo.new(0.3), {ImageTransparency = 1}):Play()
-         TweenService:Create(Label, TweenInfo.new(0.3), {TextTransparency = 1}):Play()
-         task.wait(0.35)
-         Frame:Destroy()
-         NotificationGui:Destroy()
-      end
-   end)
+    task.delay(duration, function()
+        if Frame and Frame.Parent then
+            TweenService:Create(Frame, TweenInfo.new(0.3), {BackgroundTransparency = 1}):Play()
+            TweenService:Create(Icon, TweenInfo.new(0.3), {ImageTransparency = 1}):Play()
+            TweenService:Create(Label, TweenInfo.new(0.3), {TextTransparency = 1}):Play()
+            task.wait(0.35)
+            Frame:Destroy()
+            NotificationGui:Destroy()
+        end
+    end)
 end
 
 local function normalize_response(res)
-   local status = res.StatusCode or res.statusCode or res.status or res.Status
-   local body = res.Body or res.body or res.Response or res.response or ""
-   return status, body
+    local status = res.StatusCode or res.statusCode or res.status or res.Status
+    local body = res.Body or res.body or res.Response or res.response or ""
+    return status, body
 end
 
 local function try_load(urls)
-   for i = 1, #urls do
-      local url = urls[i]
-      local ok, res = pcall(function()
-         return http_requesting({ Url = url, Method = "GET" })
-      end)
+    for i = 1, #urls do
+        local url = urls[i]
+        local ok, res = pcall(function()
+            return http_requesting({ Url = url, Method = "GET" })
+        end)
 
-      if ok and res then
-         local status, body = normalize_response(res)
-         if status == 200 and body ~= "" and not tostring(body):find("404: Not Found") then
-            local f, err = loadstring(body)
-            if f then
-               local s_ok, s_res = pcall(f)
-               if s_ok then
-                  return s_res
-               else
-                  return { failed = true, status = "load-error", url = url, body = tostring(s_res) }
-               end
-            else
-               return { failed = true, status = "compile-error", url = url, body = tostring(err) }
+        if ok and res then
+            local status, body = normalize_response(res)
+            if status == 200 and body ~= "" and not tostring(body):find("404: Not Found") then
+                local f, err = loadstring(body)
+                if f then
+                    local s_ok, s_res = pcall(f)
+                    if s_ok then
+                        return s_res
+                    else
+                        return { failed = true, status = "load-error", url = url, body = tostring(s_res) }
+                    end
+                else
+                    return { failed = true, status = "compile-error", url = url, body = tostring(err) }
+                end
             end
-         end
-      end
-   end
-   return { failed = true, status = "no-response", url = urls[#urls] }
+        end
+    end
+    return { failed = true, status = "no-response", url = urls[#urls] }
 end
 
 local HttpService = cloneref and cloneref(game:GetService("HttpService")) or game:GetService("HttpService")
@@ -132,13 +132,8 @@ local function executor_contains(substr)
     return string.find(string.lower(executor_string), string.lower(substr), 1, true) ~= nil
 end
 
-
-function notify(notif_type, msg, duration)
+getgenv().notify = getgenv().notify or function(notif_type, msg, duration)
     NotifyLib:External_Notification(tostring(notif_type), tostring(msg), tonumber(duration))
-end
-wait(0.1)
-if not getgenv().notify then
-    getgenv().notify = notify
 end
 
 local success, result = pcall(function()
@@ -152,7 +147,7 @@ end
 
 local users = result
 if type(users) ~= "table" then
-    return warn("Invalid user list (not a table)")
+    return warn("Invalid user list.")
 end
 
 getgenv().blacklisted_users = users
@@ -215,22 +210,24 @@ task.spawn(function()
 end)
 
 task.spawn(function()
-   while getgenv().ConstantUpdate_Checker_Live do
-      task.wait(0.5)
-      local success, latestVersionInfo = pcall(function()
-         local versionJson = game:HttpGet("https://raw.githubusercontent.com/EnterpriseExperience/MicUpSource/main/Script_Versions_JSON?cachebust=" .. tick())
-         return HttpService:JSONDecode(versionJson)
-      end)
+    while getgenv().ConstantUpdate_Checker_Live do
+        task.wait(0.5)
+        local success, latestVersionInfo = pcall(function()
+            local versionJson = game:HttpGet("https://raw.githubusercontent.com/EnterpriseExperience/MicUpSource/main/Script_Versions_JSON?cachebust=" .. tick())
+            return HttpService:JSONDecode(versionJson)
+        end)
 
-      if success and latestVersionInfo then
-         if Script_Version ~= latestVersionInfo.LifeTogether_Admin_Version then
-            getgenv().ConstantUpdate_Checker_Live = false
-            Notify("[LIFE TOGETHER ADMIN]: do NOT rejoin! An update is now out! Update version: "..tostring(latestVersionInfo.LifeTogether_Admin_Version).." | re-executing automatically...", 30)
-            getgenv().LifeTogetherRP_Admin = false
-            wait(3)
-            loadstring(game:HttpGet('https://raw.githubusercontent.com/EnterpriseExperience/MicUpSource/refs/heads/main/LifeTogether_RP_Admin.lua'))()
-            break
-         end
-      end
-   end
+        if success and latestVersionInfo then
+            if Script_Version ~= latestVersionInfo.LifeTogether_Admin_Version then
+                getgenv().ConstantUpdate_Checker_Live = false
+                Notify("[LIFE TOGETHER ADMIN]: do NOT rejoin! An update is now out! Update version: "..tostring(latestVersionInfo.LifeTogether_Admin_Version).." | re-executing automatically...", 30)
+                getgenv().LifeTogetherRP_Admin = false
+                wait(3)
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/EnterpriseExperience/MicUpSource/refs/heads/main/LifeTogether_RP_Admin.lua'))()
+                break
+            end
+        else
+            getgenv().notify("Error", "Something happened while fetching and checking script version(s), got: "..tostring(latestVersionInfo)..", while checking: "..tostring(Script_Version), 25)
+        end
+    end
 end)
