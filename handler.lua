@@ -208,26 +208,3 @@ task.spawn(function()
         end
     end
 end)
-
-task.spawn(function()
-    while getgenv().ConstantUpdate_Checker_Live do
-        task.wait(0.5)
-        local success, latestVersionInfo = pcall(function()
-            local versionJson = game:HttpGet("https://raw.githubusercontent.com/EnterpriseExperience/MicUpSource/main/Script_Versions_JSON?cachebust=" .. tick())
-            return HttpService:JSONDecode(versionJson)
-        end)
-
-        if success and latestVersionInfo then
-            if Script_Version ~= latestVersionInfo.LifeTogether_Admin_Version then
-                getgenv().ConstantUpdate_Checker_Live = false
-                Notify("[LIFE TOGETHER ADMIN]: do NOT rejoin! An update is now out! Update version: "..tostring(latestVersionInfo.LifeTogether_Admin_Version).." | re-executing automatically...", 30)
-                getgenv().LifeTogetherRP_Admin = false
-                wait(3)
-                loadstring(game:HttpGet('https://raw.githubusercontent.com/EnterpriseExperience/MicUpSource/refs/heads/main/LifeTogether_RP_Admin.lua'))()
-                break
-            end
-        else
-            getgenv().notify("Error", "Something happened while fetching and checking script version(s), got: "..tostring(latestVersionInfo)..", while checking: "..tostring(Script_Version), 25)
-        end
-    end
-end)
