@@ -177,7 +177,7 @@ end
 
 for name, entry in pairs(users) do
     if not is_expired(entry) and Players:FindFirstChild(name) then
-        getgenv().notify("Warning", ("Blacklisted user in server: %s (%s)"):format(name, entry.reason or "No reason"))
+        getgenv().notify("Warning", ("Blacklisted user in server: %s (%s)"):format(name, entry.reason or "No reason"), 5)
     end
 end
 
