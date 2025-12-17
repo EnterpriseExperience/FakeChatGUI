@@ -1,8 +1,8 @@
 local http_requesting = request or http_request or (syn and syn.request) or (http and http.request) or (fluxus and fluxus.request)
 local httpreq = http_requesting
 getgenv().ConstantUpdate_Checker_Live = true
-local Raw_Version = "V7.3.0"
-local Script_Version = getgenv().Script_Version_GlobalGenv or tostring(Raw_Version).."-LifeAdmin"
+local Raw_Version = "V7.3.3"
+local Script_Version = getgenv().Script_Version or getgenv().Script_Version_GlobalGenv
 
 function Notify(message, duration)
    local CoreGui = cloneref and cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui")
