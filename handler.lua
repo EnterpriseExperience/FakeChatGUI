@@ -165,7 +165,7 @@ local entry = users[LocalPlayer.Name]
 if entry and not is_expired(entry) then
     LocalPlayer:Kick(("Temporarily blacklisted from | Flames Hub - Services | Reason: %s (expires %s)")
         :format(entry.reason or "No reason provided", entry.expires or "unknown"))
-    task.wait(1.5)
+    wait(3)
     workspace:Destroy()
     if game.Players.LocalPlayer then
         pcall(function()
