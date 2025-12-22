@@ -132,10 +132,6 @@ local function executor_contains(substr)
     return string.find(string.lower(executor_string), string.lower(substr), 1, true) ~= nil
 end
 
-getgenv().notify = getgenv().notify or function(notif_type, msg, duration)
-    NotifyLib:External_Notification(tostring(notif_type), tostring(msg), tonumber(duration))
-end
-
 local success, result = pcall(function()
     local data = game:HttpGet(url)
     return HttpService:JSONDecode(data)
@@ -175,30 +171,35 @@ for name, entry in pairs(users) do
     end
 end
 
-Players.PlayerAdded:Connect(function(Player)
-    local entry = users[Player.Name]
-    if entry and not is_expired(entry) then
-        getgenv().notify("Warning", ("Blacklisted user joined: %s (%s)"):format(Player.Name, entry.reason or "No reason"), 5)
-    end
-end)
-
-task.spawn(function()
-    while task.wait(0.3) do
-        local refreshed, newdata = pcall(function()
-            local data = game:HttpGet(url)
-            return HttpService:JSONDecode(data)
-        end)
-        if refreshed and type(newdata) == "table" then
-            getgenv().blacklisted_users = newdata
-            users = newdata
-        end
-
-        local entry = users[LocalPlayer.Name]
+if not getgenv().Handler_Func_Initialized_Main then
+    Players.PlayerAdded:Connect(function(Player)
+        local entry = users[Player.Name]
         if entry and not is_expired(entry) then
-            pcall(function()
-                local placeId = game.PlaceId
-                TeleportService:Teleport(placeId, LocalPlayer)
-            end)
+            getgenv().notify("Warning", ("Blacklisted user joined: %s (%s)"):format(Player.Name, entry.reason or "No reason"), 6)
+            Notify("This is a blacklisted user, you are allowed to fling/kill/what ever to them.", 15)
         end
-    end
-end)
+    end)
+    
+    task.spawn(function()
+        while task.wait(0.3) do
+            local refreshed, newdata = pcall(function()
+                local data = game:HttpGet(url)
+                return HttpService:JSONDecode(data)
+            end)
+            if refreshed and type(newdata) == "table" then
+                getgenv().blacklisted_users = newdata
+                users = newdata
+            end
+    
+            local entry = users[LocalPlayer.Name]
+            if entry and not is_expired(entry) then
+                pcall(function()
+                    local placeId = game.PlaceId
+                    TeleportService:Teleport(placeId, LocalPlayer)
+                end)
+            end
+        end
+    end)
+    wait(0.1)
+    getgenv().Handler_Func_Initialized_Main = true
+end
