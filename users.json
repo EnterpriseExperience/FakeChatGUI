@@ -202,5 +202,9 @@
     "YNWKee": {
         "reason": "Disrespected owner, got you on video too, indefinite suspension.",
         "expires": "9999-12-30"
+    },
+    "creatormobbbb": {
+        "reason": "You've been blacklisted, it'll stay that way, goodbye.",
+        "expires": "9999-12-30"
     }
 }
