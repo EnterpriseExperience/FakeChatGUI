@@ -1,7 +1,7 @@
 local http_requesting = request or http_request or (syn and syn.request) or (http and http.request) or (fluxus and fluxus.request)
 local httpreq = http_requesting
 getgenv().ConstantUpdate_Checker_Live = true
-local Raw_Version = "V7.7.2 (flames hub = #1)"
+local Raw_Version = "V7.7.2 (flames hub too OP)"
 local Script_Version = getgenv().Script_Version or getgenv().Script_Version_GlobalGenv
 
 function Notify(message, duration)
