@@ -168,7 +168,6 @@ end
 for name, entry in pairs(users) do
     if not is_expired(entry) and Players:FindFirstChild(name) then
         getgenv().notify("Warning", ("Blacklisted user in server: %s (%s)"):format(name, entry.reason or "No reason"), 5)
-        
     end
 end
 
@@ -177,7 +176,7 @@ if not getgenv().Handler_Func_Initialized_Main then
         local entry = users[Player.Name]
         if entry and not is_expired(entry) then
             getgenv().notify("Warning", ("Blacklisted user joined: %s (%s)"):format(Player.Name, entry.reason or "No reason"), 6)
-            Notify("This is a blacklisted user, you are allowed to fling/kill/what ever to them, you are encouraged to do so.", 15)
+            Notify("This is a blacklisted user, you ARE allowed to fling/kill/what ever to them, you are encouraged to do so.", 15)
         end
     end)
     
