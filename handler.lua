@@ -7,7 +7,6 @@ local Script_Version = getgenv().Script_Version or getgenv().Script_Version_Glob
 function Notify(message, duration)
     local CoreGui = cloneref and cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui")
     local TweenService = cloneref and cloneref(game:GetService("TweenService")) or game:GetService("TweenService")
-
     local NotificationGui = Instance.new("ScreenGui")
     NotificationGui.Name = "CustomErrorGui"
     NotificationGui.ResetOnSpawn = false
@@ -159,7 +158,7 @@ end
 
 local entry = users[LocalPlayer.Name]
 if entry and not is_expired(entry) then
-    LocalPlayer:Kick(("Blacklisted from | Flames Hub - Utilities | Reason: %s (expires: %s)")
+    LocalPlayer:Kick(("Blacklisted from | Flames Hub - Services | Reason: %s (expires: %s)")
         :format(entry.reason or "No reason provided", entry.expires or "unknown"))
     wait(3)
     while true do end
@@ -175,7 +174,7 @@ if not getgenv().Handler_Func_Initialized_Main then
     Players.PlayerAdded:Connect(function(Player)
         local entry = users[Player.Name]
         if entry and not is_expired(entry) then
-            getgenv().notify("Warning", ("Blacklisted user joined: %s (%s)"):format(Player.Name, entry.reason or "No reason"), 6)
+            getgenv().notify("Warning", ("Blacklisted user joined: %s (%s)"):format(Player.Name, entry.reason or "No reason"), 8)
             Notify("This is a blacklisted user, you ARE allowed to fling/kill/what ever to them, you are encouraged to do so.", 15)
         end
     end)
