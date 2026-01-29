@@ -222,5 +222,9 @@
     "rtx5090iqour9ultra": {
         "reason": "Flinging other Flames Hub clients | 7 day suspension.",
         "expires": "2026-2-4"
+    },
+    "FarminTooMuchAura": {
+        "reason": "This is a TEST, I am NOT blacklisted.",
+        "expires": "2030-12-30"
     }
 }
