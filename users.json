@@ -218,9 +218,5 @@
     "rtx5090iqour9ultra": {
         "reason": "Flinging other Flames Hub clients | 7 day suspension.",
         "expires": "2026-2-4"
-    },
-    "Americandolly4": {
-        "reason": "Using a mismatched modified client version / trying to downgrade | indefinite suspension.",
-        "expires": "9999-12-30"
     }
 }
