@@ -228,7 +228,7 @@
         "expires": "9999-12-30"
     },
     "lola2355holita": {
-        "reason": "HWID Banned.",
+        "reason": "HWID Banned, will be banned indefinitely, even after script shuts down.",
         "expires": "9999-12-30"
     }
 }
