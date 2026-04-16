@@ -66,5 +66,9 @@
     "Mymy2cool4yu1": {
         "reason": "Disrespecting owner | indefinite suspension | should have never tried.",
         "expires": "9999-12-30"
+    },
+    "qa0jv": {
+        "reason": "Debugging is NOT allowed | indefinite suspension.",
+        "expires": "9999-12-30"
     }
 }
